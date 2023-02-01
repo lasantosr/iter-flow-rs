@@ -1,0 +1,11 @@
+[package]
+name = "iter-flow"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["use_alloc"]
+use_alloc = []
+
+[dev-dependencies]
+anyhow = "1"
