@@ -294,16 +294,10 @@ where
             (None, None) => return,
             (a, b) => {
                 let equal = match (&a, &b) {
-                    (&Some(ref a), &Some(ref b)) => a == b,
+                    (Some(ref a), Some(ref b)) => a == b,
                     _ => false,
                 };
-                assert!(
-                    equal,
-                    "Failed assertion {a:?} == {b:?} for iteration {i}",
-                    i = i,
-                    a = a,
-                    b = b
-                );
+                assert!(equal, "Failed assertion {a:?} == {b:?} for iteration {i}",);
                 i += 1;
             }
         }

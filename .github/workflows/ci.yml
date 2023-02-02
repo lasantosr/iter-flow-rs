@@ -16,14 +16,21 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Install Rust nightly
-      run: rustup toolchain install nightly
-    
-    - name: Install Rust stable
-      run: rustup update --no-self-update stable && rustup default stable
+    - name: Install latest nightly
+      uses: actions-rs/toolchain@v1
+      with:
+          toolchain: nightly
+          components: rustfmt
 
     - name: Check the code formatting with rustfmt
       run: cargo +nightly fmt -- --check
+
+    - name: Install latest stable
+      uses: actions-rs/toolchain@v1
+      with:
+          toolchain: stable
+          default: true
+          components: clippy
 
     - name: Ensure there are no warnings with Clippy
       run: cargo clippy --all-features -- -Dwarnings

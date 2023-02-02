@@ -102,7 +102,6 @@ Cargo.lock
 
 # Config
 .taplo.toml
-.rustfmt.toml
 
 ### Local ###
 .env
