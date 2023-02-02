@@ -7,6 +7,8 @@ operations to develop in a declarative approach (as opposed to usual imperative)
 
 
 ```rust
+use iter_flow::Iterflow;
+
 fn sub_1(n: u32) -> Result<u32, &'static str> {
     if n == 0 { Err("illegal!") } else { Ok(n - 1) }
 }
